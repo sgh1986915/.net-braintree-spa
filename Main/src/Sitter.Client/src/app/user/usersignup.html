@@ -1,0 +1,114 @@
+<div id="signup-page" class="page-content">
+    <div class="container sitterhub-container signup-container">
+        <div class="container-overlay"></div>
+
+        <div class="row">
+            <div class="col-xs-12 logo-container">
+                <img src="content/images/mysitterHUB_logo-trimmed.png" alt="My Sitter Hub"/>
+            </div>
+
+            <div class="col-xs-12 signup-window-wrapper">
+                <div class="choose-role-window-wrapper" ng-hide="SignupForm.Form.user.userRole">
+                    <div class="choose-role-window">
+                        <button class="btn btn-rj btn-wide" ng-click="chooseRole('Parent');">I am a parent</button>
+                        <button class="btn btn-rj btn-wide" ng-click="chooseRole('Sitter');">I am a sitter</button>
+                    </div>
+                </div>
+
+                <div ng-show="SignupForm.Form.user.userRole" class="signup-form-wrapper">
+                    <form class="form-horizontal" id="signup-form" name="SignupForm" autocomplete="off">
+                        <div class="signup-form-content">
+                            <h5 class="text-center">
+                                Welcome to MySitterHub.com, the fastest and easiest way to schedule a babysitter.
+                                Create an account to hire your sitter in seconds.
+                            </h5>
+
+                            <div class="row">
+                                <div class="col-xs-12 text-right">
+                                    Already have an account? <a href="#/user/login">Log in</a>
+                                </div>
+                            </div>
+
+                            <div class="form-group" show-errors>
+                                <label for="firstName" class="control-label col-xs-12 label-left">First Name</label>
+                                <div class="col-xs-12" style="position: static">
+                                    <input type="text" id="firstName" class="form-control" name="firstName" ng-model="SignupForm.Form.user.firstName" required />
+                                </div>
+                            </div>
+
+                            <div class="form-group" show-errors>
+                                <label for="lastName" class="control-label col-xs-12 label-left">Last Name</label>
+                                <div class="col-xs-12" style="position: static">
+                                    <input type="text" id="lastName" class="form-control" name="lastName" ng-model="SignupForm.Form.user.lastName" required />
+                                </div>
+                            </div>
+
+                            <div class="form-group" show-errors>
+                                <label for="mobilePhone" class="control-label col-xs-12 label-left">Mobile Number</label>
+                                <div class="col-xs-12" style="position: static">
+                                    <input type="text" id="mobilePhone" class="form-control" phoneformat
+                                           name="phone" ng-model="SignupForm.Form.user.mobilePhone" required />
+                                </div>
+                            </div>
+
+                            <div class="form-group" show-errors>
+                                <label for="email" class="control-label col-xs-12 label-left">Email</label>
+                                <div class="col-xs-12" style="position: static">
+                                    <input type="email" id="email" class="form-control" name="email" ng-model="SignupForm.Form.user.email" autocomplete="off" required />
+                                </div>
+                            </div>
+
+                            <div class="form-group" show-errors>
+                                <label for="password" class="control-label col-xs-12 label-left">Password</label>
+                                <div class="col-xs-12" style="position: static">
+                                    <input type="password" id="password" class="form-control" name="pass" ng-model="SignupForm.Form.pass" autocomplete="off" required />
+                                </div>
+                            </div>
+
+                            <div ng-show="SignupForm.Form.user.userRole == 'Sitter'">
+                                <div class="form-group" show-errors>
+                                    <label for="age" class="control-label col-xs-12 label-left">Age</label>
+                                    <div class="col-sm-12" style="position: static">
+                                        <select class="form-control" id="age" name="Age" ng-options="v.value as v.label for (k, v) in SignupHelper.ageOptions"
+                                                ng-model="SignupForm.Form.sitterSignupInfo.age" ng-required="SignupForm.Form.user.userRole == 'Sitter'">
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div ng-show="SignupForm.Form.sitterSignupInfo.age < 18">
+                                    <div class="form-group" show-errors>
+                                        <label for="parentMobile" class="control-label col-xs-12 label-left">Parent Cell Phone: </label>
+                                        <div class="col-xs-12">
+                                            <input type="text" id="parentMobile" name="parentMobile" class="form-control" ng-model="SignupForm.Form.sitterSignupInfo.parentMobile"
+                                                   phoneformat ng-required="SignupForm.Form.user.userRole == 'Sitter' && SignupForm.Form.sitterSignupInfo.age < 18" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" show-errors>
+                                        <label for="parentEmail" class="control-label col-xs-12 label-left">Parent Email: </label>
+                                        <div class="col-xs-12">
+                                            <input type="email" id="parentEmail" name="parentEmail" class="form-control" ng-model="SignupForm.Form.sitterSignupInfo.parentEmail"
+                                                   ng-required="SignupForm.Form.user.userRole == 'Sitter' && SignupForm.Form.sitterSignupInfo.age < 18" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    By clicking "Create Account" you agree MySitterHub's <a>Terms and Conditions</a> and <a>Privacy Policy</a>.
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-rj btn-wide" ng-disabled="SignupForm.$invalid || SignupHelper.Processing || SignupForm.$pristine" ng-click="submitSignup();">Create Account</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

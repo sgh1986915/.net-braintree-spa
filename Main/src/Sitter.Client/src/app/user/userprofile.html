@@ -1,0 +1,169 @@
+<section id="parent-profile-page" class="page-content">
+	<div class="section-title text-center">
+		<h2 class="main-title">My Profile</h2>
+		<hr />
+	</div>
+
+	<div class="container sitterhub-container parent-profile-container">
+		<form id="profile-form" name="ParentProfile" class="form-horizontal" enctype="multipart/form-data">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group" show-errors>
+						<label for="firstName" class="control-label col-sm-4 col-md-4">Name</label>
+
+						<div class="col-sm-8 col-md-8" style="position: static">
+							<input type='text' name="ParentProfile.Form.firstName"
+								   class="form-control"
+								   ng-blur="saveProfile();"
+								   id='firstName' ng-model="ParentProfile.Form.firstName" required/>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group" show-errors>
+						<div class="col-sm-12" style="position: static">
+							<input type='text' name="ParentProfile.Form.lastName" class="form-control"
+								   ng-blur="saveProfile();" id='lastName' ng-model="ParentProfile.Form.lastName" required/>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group" show-errors>
+						<label for="email" class="control-label col-sm-4 col-md-4">Email</label>
+
+						<div class="col-sm-8 col-md-8" style="position: static">
+							<input type='email' name="ParentProfile.Form.email" class="form-control"
+								   ng-blur="saveProfile();" id='email' ng-model="ParentProfile.Form.email" required/>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group" show-errors>
+						<label for="mobilePhone" class="control-label col-xs-3">Mobile</label>
+
+						<div class="col-xs-9" style="position: static">
+							<input type='text' name="ParentProfile.Form.mobilePhone"
+								   class="form-control" phoneformat
+								   id='mobilePhone' ng-model="ParentProfile.Form.mobilePhone"
+								   ng-blur="saveProfile();" required/>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group col-pad">
+						<div class="col-xs-12">
+							<div class="row">
+								<label class="control-label col-xs-4">Password</label>
+
+								<div class="col-xs-8 col-pad" ng-if="!ParentProfileHelper.ChangePassPressed">
+									<a ng-click="changePassword();">Change Password</a>
+								</div>
+
+								<div class="col-xs-8" ng-if="ParentProfileHelper.ChangePassPressed">
+									<div class="form-group change-pass col-xs-12" show-errors>
+										<div class="change-password-input-wrapper" style="position: static">
+											<input type='password' placeholder="Current Password"
+												   class="form-control" id='oldPass'
+												   name="ParentProfileHelper.ChangePass.oldPass"
+												   ng-model="ParentProfileHelper.ChangePass.oldPass"
+												   ng-required="ParentProfileHelper.ChangePassPressed"/>
+										</div>
+									</div>
+
+									<div class="form-group change-pass col-xs-12" show-errors>
+										<div class="change-password-input-wrapper" style="position: static">
+											<input type='password' placeholder="New Password"
+												   class="form-control" id='newPass'
+												   name="ParentProfileHelper.ChangePass.newPass"
+												   ng-model="ParentProfileHelper.ChangePass.newPass"
+												   ng-required="ParentProfileHelper.ChangePassPressed"/>
+										</div>
+									</div>
+
+									<div class="form-group change-pass col-xs-12" show-errors>
+										<div class="change-password-input-wrapper" style="position: static">
+											<input type='password' placeholder="Confirm Password"
+												   class="form-control" id='newPassRepeat'
+												   name="ParentProfileHelper.ChangePass.newPassRepeat"
+												   ng-model="ParentProfileHelper.ChangePass.newPassRepeat"
+												   ng-required="ParentProfileHelper.ChangePassPressed"/>
+										</div>
+									</div>
+
+									<button class="btn btn-rj" id="saveForm"
+											ng-click="savePassword();"
+											ng-disabled="ParentProfile.$invalid || ParentProfile.$pristine || ParentProfileHelper.Processing">
+										Save
+									</button>
+								</div>
+							</div>
+							<!--<div class="row">-->
+								<!--<div class="form-group col-xs-12">-->
+									<!--<div style="position: static">-->
+										<!--<a ng-click="editPaymentInfo()">Edit Payment Info</a>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</div>-->
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<div class="col-xs-3">
+							<div class="photo-sitter profile-page">
+								<img ng-src="{{ParentProfileHelper.ParentImageUrl}}"/>
+							</div>
+						</div>
+						<div class="col-xs-9 col-pad">
+							<!--<input type='file' class="form-control"-->
+								   <!--id='photoUrl' name="ParentProfile.Form.photo"-->
+								   <!--ng-model="ParentProfile.Form.photo" ng-change="imageChange()" />-->
+							<input type="file" ng-model-instant id="photoUrl" onchange="angular.element(this).scope().imageChange(this)" />
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group" show-errors>
+						<label for="timezoneOffset" class="control-label col-xs-3">Timezone Offset</label>
+
+						<div class="col-xs-9" style="position: static">
+							<input type='number' name="ParentProfile.Form.timezoneOffset"
+								   class="form-control" min="-12" max="14"
+								   id='timezoneOffset' ng-model="ParentProfile.Form.timezoneOffset"
+								   ng-blur="saveProfile();" required/>
+						</div>
+
+						<div class="col-xs-12" ng-show="ParentProfileHelper.currentTimeWithOffset">
+							So your current time is {{ParentProfileHelper.currentTimeWithOffset | date:"MMMM d, h:mma"}}
+						</div>
+					</div>
+				</div>
+
+				<!--<div class="col-xs-12">-->
+					<!--<a href="#">More About Your Family</a>-->
+				<!--</div>-->
+			</div>
+		</form>
+
+		<!--<form name="form1" method="post" enctype="multipart/form-data" action="api/profile">-->
+			<!--<div>-->
+				<!--<label for="caption">Image Caption</label>-->
+				<!--<input name="caption" type="text" />-->
+				<!--<input name="Authorization" type="hidden" value="SimpleToken 1:776ed4ad-b9aa-4c32-9458-8f11b327fdb2" />-->
+			<!--</div>-->
+			<!--<div>-->
+				<!--<label for="image1">Image File</label>-->
+				<!--<input name="image1" type="file" />-->
+			<!--</div>-->
+			<!--<div>-->
+				<!--<input type="submit" value="Submit" />-->
+			<!--</div>-->
+		<!--</form>-->
+	</div>
+</section>

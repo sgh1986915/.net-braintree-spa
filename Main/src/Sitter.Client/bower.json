@@ -1,0 +1,42 @@
+{
+  "name": "MySitterHub",
+  "version": "0.0.1",
+  "description": "Babysitting made easy",
+  "authors": [
+    "Joseph Fluckiger"
+  ],
+  "license": "Proprietary",
+  "homepage": "http://mysitterhub.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "src/bowerlib",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular-mocks": "^1.3.9"
+  },
+  "dependencies": {
+    "angular": "~1.3.15",
+    "bootstrap": "^3.1.1",
+    "moment": "^2.6.0",
+    "jquery": "^2.1.0",
+    "angular-route": "^1.2.23",
+    "angular-animate": "^1.2.23",
+    "angular-sanitize": "^1.2.23",
+    "font-awesome": "^4.0.3",
+    "extras.angular.plus": "^0.9.0",
+    "signalr": "~2.1.2",
+    "angular-bootstrap-show-errors": "~2.3.0",
+    "ng-sortable": "~1.2.0",
+    "angular-bootstrap": "~0.12.1",
+    "angular-ui-select": "~0.11.2",
+    "angularjs-toaster": "~0.4.12",
+    "angular-background": "~1.0.0",
+    "angular-cookie": "~4.0.6"
+  },
+  "resolutions": {
+    "angular": ">=1.2.25 <1.4.0"
+  }
+}

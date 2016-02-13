@@ -1,0 +1,106 @@
+﻿<section id="admin-smssimulator-page" class="page-content">
+    <div class="page-content-area">
+        <h2>SMS simulator</h2>
+        <hr />
+        <div class="container sitterhub-container admin-smssimulator-container">
+            <div class="first-row row" style="overflow: hidden;">
+                <div class="col-xs-12 col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Simulate Inbound TxtMsg</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="body-content">
+                                <form name="SmsForm">
+                                    <div class="form-group no-margin">
+                                        <label for="UserTo" class="control-label col-xs-12 col-sm-3">From: </label>
+                                        <div class="col-xs-12 col-sm-9">
+                                            <ui-select name="UserTo" id="UserTo" ng-model="SmsForm.Form.UserTo" theme="selectize" reset-search-input="false" required>
+                                                <ui-select-match placeholder="Enter an address... {{$select.selected.fullName + ' ' + $select.selected.mobilePhone}}">{{$select.selected.fullName}} {{$select.selected.mobilePhone}}</ui-select-match>
+                                                <ui-select-choices repeat="option in SmsHelper.userOptions | filter:$select.search">
+                                                    <div ng-bind-html="trustAsHtml((option.fullName + ' ' + option.mobilePhone | highlight: $select.search))"></div>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group no-margin">
+                                        <label for="Message" class="control-label col-xs-12 col-sm-3">Msg: </label>
+                                        <div class="col-xs-12 col-sm-9">
+                                            <textarea id="Message" name="Message" class="col-xs-12" ng-model="SmsForm.Form.Message"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 float-right">
+                                        <button id="sendMsg" class="btn btn-rj" ng-disabled="SmsForm.$pristine || SmsForm.$invalid || SmsHelper.Processing" ng-click="sendMessage();">Send</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="col-xs-12 col-md-6">-->
+                    <!--<div class="panel panel-default">-->
+                        <!--<div class="panel-heading">-->
+                            <!--<h3 class="panel-title">Info</h3>-->
+                        <!--</div>-->
+                        <!--<div class="panel-body">-->
+                            <!--<div class="body-content">-->
+                                <!--SimulationMode: {{SmsHelper.Info.smsSimulationMode ? "ON" : "OFF"}}-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+
+            <div class="row" style="overflow: hidden;">
+                <div class="col-xs-12 col-md-6">
+                    <button id="refreshMsg" class="btn btn-rj" ng-disabled="SmsHelper.Processing" ng-click="refreshMessages();">Refresh</button>
+                </div>
+            </div>
+
+            <div class="second-row row" style="overflow: hidden;">
+                <div class="col-xs-12 col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">All text messages</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="body-content">
+                                <div class="messages-list">
+                                    <div ng-repeat="msg in SmsHelper.allMessages">
+                                        <div style="font-weight: bold;">Inbound message from {{msg.mobilePhone}}</div>
+                                        <div>messageType: {{msg.inboundMessageType}}</div>
+                                        <div>UserId: {{msg.userId}}</div>
+                                        <div>UserName: {{msg.userName}}</div>
+                                        <div>ConversationId: {{msg.conversationId | json}}</div>
+                                        <div>SmsSimulationMode: {{msg.smsSimulationMode ? "ON" : "OFF"}}</div>
+                                        <div>Message: "{{msg.message}}"</div>
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">TxtMsgAwaitingResponse</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="body-content">
+                                <div class="messages-list">
+                                    <div ng-repeat="msg in SmsHelper.awaitingResponseMessages">
+                                        {{SmsHelper.allMessages}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,267 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:igDP="http://infragistics.com/DataPresenter">
+
+	<!-- Brushes -->
+	<SolidColorBrush x:Key="FormGroupBoxHeaderBackgroundBrush" Color="#dde4ed" />
+	<SolidColorBrush x:Key="FormGroupBoxHeaderForegroundBrush" Color="#527298" />
+	<SolidColorBrush x:Key="FormGroupBoxBorderBrush" Color="#D5DFE5" />
+	<SolidColorBrush x:Key="FormListBoxBackgroundBrush" Color="#EDF1F5" />
+
+	<LinearGradientBrush x:Key="EFExpanderHeaderBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="#FF6497CB" Offset="0"/>
+		<GradientStop Color="#FF36699C" Offset="1"/>
+	</LinearGradientBrush>
+
+    <SolidColorBrush x:Key="GridRowLines" Color="#cccccc"/>
+
+    <DrawingBrush x:Key="RedSquareDrawingBrush" Stretch="Uniform">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Geometry="F1 M 8.5,0.500977L 92.4998,0.500977C 96.9181,0.500977 100.5,4.08264 100.5,8.50098L 100.5,92.5009C 100.5,96.9193 96.9181,100.501 92.4998,100.501L 8.5,100.501C 4.08172,100.501 0.5,96.9193 0.5,92.5009L 0.5,8.50098C 0.5,4.08264 4.08172,0.500977 8.5,0.500977 Z ">
+                        <GeometryDrawing.Pen>
+                            <Pen LineJoin="Round" Brush="#FF000000"/>
+                        </GeometryDrawing.Pen>
+                        <GeometryDrawing.Brush>
+                            <LinearGradientBrush StartPoint="0.142912,0.142902" EndPoint="0.857091,0.857081">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Color="#FFFF8080" Offset="0"/>
+                                    <GradientStop Color="#FFE00000" Offset="1"/>
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </GeometryDrawing.Brush>
+                    </GeometryDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush x:Key="GreenCircleDrawingBrush" Stretch="Uniform">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Geometry="F1 M 175.5,0.5C 203.114,0.5 225.5,22.8857 225.5,50.5C 225.5,78.1142 203.114,100.5 175.5,100.5C 147.886,100.5 125.5,78.1142 125.5,50.5C 125.5,22.8857 147.886,0.5 175.5,0.5 Z ">
+                        <GeometryDrawing.Pen>
+                            <Pen LineJoin="Round" Brush="#FF202020"/>
+                        </GeometryDrawing.Pen>
+                        <GeometryDrawing.Brush>
+                            <LinearGradientBrush StartPoint="0.142911,0.142911" EndPoint="0.857089,0.85709">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Color="#FF60FF60" Offset="0"/>
+                                    <GradientStop Color="#FF00A000" Offset="1"/>
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </GeometryDrawing.Brush>
+                    </GeometryDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush x:Key="YellowTriangleDrawingBrush" Stretch="Uniform">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Geometry="F1 M 300.5,0.5L 250.5,100.5L 350.5,100.5L 300.5,0.5 Z ">
+                        <GeometryDrawing.Pen>
+                            <Pen LineJoin="Round" Brush="#FF202020"/>
+                        </GeometryDrawing.Pen>
+                        <GeometryDrawing.Brush>
+                            <LinearGradientBrush StartPoint="0.149744,0.197586" EndPoint="1.07523,0.197586">
+                                <LinearGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <RotateTransform CenterX="0.149744" CenterY="0.197586" Angle="40.8076"/>
+                                    </TransformGroup>
+                                </LinearGradientBrush.RelativeTransform>
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Color="#FFFFFFC0" Offset="0"/>
+                                    <GradientStop Color="#FFFFE000" Offset="1"/>
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </GeometryDrawing.Brush>
+                    </GeometryDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush x:Key="OrangeTriangleDrawingBrush" Stretch="Uniform">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Geometry="F1 M 425.5,100.5L 475.5,0.5L 375.5,0.5L 425.5,100.5 Z ">
+                        <GeometryDrawing.Pen>
+                            <Pen LineJoin="Round" Brush="#FF202020"/>
+                        </GeometryDrawing.Pen>
+                        <GeometryDrawing.Brush>
+                            <LinearGradientBrush StartPoint="0.149745,0.197587" EndPoint="1.07523,0.197587">
+                                <LinearGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <RotateTransform CenterX="0.149745" CenterY="0.197587" Angle="40.8077"/>
+                                    </TransformGroup>
+                                </LinearGradientBrush.RelativeTransform>
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Color="#FFFFA000" Offset="0"/>
+                                    <GradientStop Color="#FFFF6000" Offset="1"/>
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </GeometryDrawing.Brush>
+                    </GeometryDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <!-- Style a simple Microsoft Expander control to look like the Catalyst provided CollapsiblePanel control.
+		Done because the CollapsiblePanel control is very flaky in the visual designers and is not even needed.
+	-->
+	<Style x:Key="ExpanderHeaderFocusVisual">
+		<Setter Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Border>
+						<Rectangle Margin="0" SnapsToDevicePixels="true" Stroke="Black" StrokeThickness="1" StrokeDashArray="1 2"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="ExpanderDownHeaderStyle" TargetType="{x:Type ToggleButton}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ToggleButton}">
+					<Border 
+							Padding="{TemplateBinding Padding}" 
+							Background="{StaticResource EFExpanderHeaderBackgroundBrush}" 
+							BorderBrush="#244D7C" 
+							BorderThickness="1">
+						<Grid SnapsToDevicePixels="False" Margin="0,6">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="18"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+							<Path x:Name="arrow" Data="M 0,0 L 7,3.5 L 0,7 Z" HorizontalAlignment="Center" Fill="White" VerticalAlignment="Center"/>
+							<ContentPresenter 
+									Grid.Column="1" 
+									HorizontalAlignment="Stretch" 
+									Margin="2,0,0,0" 
+									RecognizesAccessKey="True" 
+									SnapsToDevicePixels="True"
+									TextElement.Foreground="White"
+									TextElement.FontSize="14" 
+									VerticalAlignment="Center">
+							</ContentPresenter>
+						</Grid>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsChecked" Value="true">
+							<Setter Property="Data" TargetName="arrow" Value="M 0,0 L 3.5,7  L 7,0 Z"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="EFExpanderStyle" TargetType="{x:Type Expander}">
+		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+		<Setter Property="VerticalContentAlignment" Value="Stretch"/>
+		<!--<Setter Property="BorderBrush" Value="#5885af"/>-->
+		<!--<Setter Property="BorderThickness" Value="1"/>-->
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Expander}">
+					<Border 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        Background="{TemplateBinding Background}" 
+                        SnapsToDevicePixels="true">
+						<DockPanel>
+							<ToggleButton 
+									x:Name="HeaderSite" 
+									ContentTemplate="{TemplateBinding HeaderTemplate}" 
+									ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}" 
+									Content="{TemplateBinding Header}" 
+									DockPanel.Dock="Top" 
+									Foreground="{TemplateBinding Foreground}" 
+									FontWeight="{TemplateBinding FontWeight}" 
+									FocusVisualStyle="{StaticResource ExpanderHeaderFocusVisual}" 
+									FontStyle="{TemplateBinding FontStyle}" 
+									FontStretch="{TemplateBinding FontStretch}" 
+									FontSize="{TemplateBinding FontSize}" 
+									FontFamily="{TemplateBinding FontFamily}" 
+									HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+									IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
+									Margin="0"  
+									Padding="{TemplateBinding Padding}" 
+									Style="{StaticResource ExpanderDownHeaderStyle}" 
+									VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+							<ContentPresenter 
+									x:Name="ExpandSite"
+									DockPanel.Dock="Bottom" 
+									HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+									Margin="{TemplateBinding Padding}"
+									Visibility="Visible" 
+									Focusable="False" />
+						</DockPanel>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsExpanded" Value="True">
+							<Setter TargetName="ExpandSite" Property="Visibility" Value="Visible" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- Style a GroupBox to match the Catalyst FormHeader control, but act as a true group box -->
+	<Style x:Key="FormGroupBoxStyle" TargetType="{x:Type GroupBox}">
+		<Setter Property="BorderBrush" Value="{StaticResource FormGroupBoxBorderBrush}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="Padding" Value="8" />
+		<Setter Property="Background" Value="White" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type GroupBox}">
+					<Border
+							BorderBrush="{TemplateBinding BorderBrush}" 
+							BorderThickness="{TemplateBinding BorderThickness}" 
+							Background="{TemplateBinding Background}">
+						<StackPanel>
+							<Border 
+									Background="{StaticResource FormGroupBoxHeaderBackgroundBrush}" 
+									BorderBrush="{TemplateBinding BorderBrush}" 
+									BorderThickness="0,0,0,1" 
+									MinHeight="30">
+								<ContentPresenter 
+										ContentSource="Header" 
+										RecognizesAccessKey="True" 
+										VerticalAlignment="Center"
+										TextElement.FontSize="14"
+										TextElement.Foreground="{StaticResource FormGroupBoxHeaderForegroundBrush}" 
+										Margin="14,4,4,4"
+										SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</Border>
+							<ContentPresenter 
+									Margin="{TemplateBinding Padding}" 
+									SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+						</StackPanel>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- Style for CellValuePresenters that display peak flags --> 
+	
+
+</ResourceDictionary>

@@ -1,0 +1,34 @@
+.parent-sitters-container {
+  .sitter-item,
+  .sitter-th,
+  .as-sortable-placeholder, // TODO: it is right inside body?
+  .as-sortable-drag {
+	margin: 0 0 -1px 0;
+	border-radius: 0;
+	padding: 10px;
+  }
+  .sitter-item {
+	border: solid 1px darkgrey;
+	background-color: #ffffff;
+  }
+  .sitter-th {
+	border: solid 1px darkgrey;
+	background-color: lightgrey;
+  }
+  .parent-sitters-list {
+	.sitter-title {
+	  float: left;
+	  margin-left: 10px;
+	  padding-top: 9px;
+	}
+	.sitter-name-wrapper {
+	  overflow: hidden;
+	  display: inline-block;
+	}
+	.sitter-info-wrapper {
+	  &:hover {
+		cursor: pointer;
+	  }
+	}
+  }
+}

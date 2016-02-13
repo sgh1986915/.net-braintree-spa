@@ -1,0 +1,64 @@
+<div id="main" ng-controller="ShellController" class="no-skin" id="appShell">
+	<div id="top-wrapper">
+		<div class="top">
+			<div class="top-brand">
+				<a href="/#/">
+					<img src="content/images/mysitterHUB_logo-trimmed.png" alt="My Sitter Hub"/>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div id="main-container-wrapper">
+		<div id="main-container">
+			<!-- TODO: hide left sidebar for anonymous user? -->
+			<div class="navbar-default sidebar main-sidebar-left" role="navigation" ng-show="appGlobals.User" ng-class="!SidebarHelper.sidebarCollapsed && appGlobals.User ? '' : 'menu-min'">
+				<div ng-hide="SidebarHelper.sidebarCollapsed">
+					<div class="photo-sitter-wrapper">
+						<div class="photo-sitter current-user">
+							<img ng-src="{{appGlobals.User.photo}}" /><br/>
+						</div>
+
+						<span id="userNameTopLeft">{{appGlobals.User.userName}}</span>
+						<br />
+					</div>
+
+					<div class="sidebar-nav">
+						<div class="nav nav-list" id="side-buttons">
+							<div ng-repeat="button in SidebarHelper.menuItems | filter:{type: 'button', role: appGlobals.User.userRole}">
+								<a id="{{button.id}}" href="{{button.url}}" class="btn btn-rj btn-xs menu-text">{{button.text}}</a>
+							</div>
+						</div>
+						<ul class="nav nav-list" id="side-menu">
+							<li ng-repeat="menuItem in SidebarHelper.menuItems | filter:{type: 'menu-item', role: appGlobals.User.userRole}" ng-class="{ active: isActive(menuItem.url) }">
+								<a id="{{menuItem.id}}" href="{{menuItem.url}}"><span class="menu-text" ng-bind="menuItem.text"></span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--
+                    <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+                        <i class="ace-icon fa"
+                           ng-class="{'fa-angle-double-left': !SidebarHelper.sidebarCollapsed, 'fa-angle-double-right': SidebarHelper.sidebarCollapsed}"
+                           ng-click="collapseSidebarOnClick();"></i>
+                    </div>
+                -->
+			</div>
+			<div data-ng-view class="main-content"></div>
+		</div>
+	</div>
+
+	<footer class="footer">
+		<section id="footer">
+			<div class="container">
+				<div class="row">
+
+				</div>
+			</div>
+		</section>
+	</footer>
+
+	<toaster-container toaster-options="{'position-class': 'toast-bottom-right'}"></toaster-container>
+
+	<span data-cc-scroll-to-top></span>
+</div>

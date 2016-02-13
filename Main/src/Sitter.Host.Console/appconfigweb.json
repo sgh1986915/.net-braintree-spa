@@ -1,0 +1,6 @@
+﻿{
+    AwsKeyId : "AKIAJF3CPB5GCZPAMWGQ",
+    AwsKeySecret: "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",
+    S3BucketName: "mshpics-dev",
+    ConfigType: "Dev"
+}

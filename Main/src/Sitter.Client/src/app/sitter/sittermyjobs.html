@@ -1,0 +1,183 @@
+<section id="sitter-jobs-page" class="page-content">
+    <div class="section-title text-center">
+        <h2 class="main-title">My Jobs</h2>
+        <hr />
+    </div>
+
+    <div class="container sitterhub-container sitter-jobs-container">
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table table-rj">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th class="default">Time</th>
+                        <th class="default">Parent</th>
+                        <th class="default">Status</th>
+                        <th class="default"></th>
+                        <th class="delete-td"></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr ng-repeat-start="jobsm in SitterJobs | filter:{isOpen:true}" class="job-tr" ng-class="jobsm.statusLabel == 'Waiting For Sitters' ? 'waiting-for-sitters' : ''">
+                        <td>
+                            <a ng-click="jobsm.collapsed = !jobsm.collapsed">
+                                <i class="glyphicon" ng-class="jobsm.collapsed ? 'glyphicon-chevron-right' : 'glyphicon-chevron-down'"></i>
+                            </a>
+                            {{jobsm.dateTimeStart | date:"M/dd/yy"}}<br>
+                        </td>
+                        <td>{{jobsm.dateTimeStart | date:"h:mma"}} - {{jobsm.dateTimeEnd | date:"h:mma"}}</td>
+                        <td>{{jobsm.otherPartyName}}</td>
+                        <td>{{jobsm.statusLabel}}</td>
+                        <td>
+                            <div class="jobs-buttons-wrapper" ng-show="jobsm.showAcceptButton">
+                                <div class="jobs-buttons-button-wrapper-6">
+                                    <button class="btn btn-xs btn-rj" ng-click="acceptJob(jobsm.job.id)">Accept</button>
+                                </div>
+                                <div class="jobs-buttons-button-wrapper-6">
+                                    <button class="btn btn-xs btn-warning" ng-click="declineJob(jobsm.job.id)">Decline</button>
+                                </div>
+                            </div>
+
+                            <div class="jobs-buttons-wrapper" ng-show="jobsm.showRequestPayment">
+                                <div class="jobs-buttons-button-wrapper-12">
+                                    <button class="btn btn-xs btn-rj" ng-click="requestPaymentForJob(jobsm.job.id)">Request payment</button>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <a ng-click="cancelJob(jobsm.job)">
+                                <i ng-show="jobsm.showSitterCancelButton" class="glyphicon glyphicon-remove"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr ng-repeat-end class="job-details-tr"
+                        ng-class="(jobsm.statusLabel == 'Waiting For Sitters' ? 'waiting-for-sitters ' : '') + (jobsm.collapsed ? 'collapsed' : '')">
+                        <td colspan="6">
+                            <div class="job-details-collapse col-xs-12" collapse="jobsm.collapsed">
+                                <div class="row">
+                                    <div class="col-xs-offset-4 col-xs-3" ng-if="jobsm.showInvitedSitters">
+                                        <table class="table replies-table">
+                                            <thead>
+                                            <tr>
+                                                <th>Invited</th>
+                                                <th>Response</th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            <tr ng-repeat="invite in jobsm.jobInvites" ng-class="$index % 2 == 1 ? 'odd' : 'even'">
+                                                <td>{{invite.sitterName}}</td>
+                                                <td>{{invite.latestResponseMessage}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="col-xs-4" ng-if="!jobsm.showInvitedSitters">
+                                        <div ng-show="jobsm.estPaidToSitter != 0" class="job-details-content-row row">
+                                            <div class="job-details-title col-xs-6">Rate:</div>
+                                            <div class="grey col-xs-6">{{jobsm.estRatePerHour | rate}}&nbsp;&nbsp;&nbsp;{{jobsm.job.duration}} hours</div>
+                                        </div>
+
+                                        <div ng-show="jobsm.estPaidToSitter != 0" class="job-details-content-row row">
+                                            <div class="job-details-title col-xs-6">Est. to Sitter:</div>
+                                            <div class="grey col-xs-6">{{jobsm.estPaidToSitter | currency:"$":2}}</div>
+                                        </div>
+
+                                        <div ng-show="jobsm.estPaidToSitter != 0" class="job-details-content-row row">
+                                            <div class="job-details-title col-xs-6">Est. Total:</div>
+                                            <div class="grey col-xs-6">{{jobsm.estPaidByParent | currency:"$":2}}</div>
+                                        </div>
+                                    </div>
+                                    <!--
+                                    <div ng-show="jobsm.job.notes" class="col-xs-5" ng-class="jobsm.showInvitedSitters ? 'col-xs-5' : 'col-xs-8'">
+                                        <div class="job-details-content-row row">
+                                            <div class="col-xs-4">Notes:</div>
+                                        </div>
+
+                                        <div class="job-details-content-row row">
+                                            <div class="notes grey col-xs-8">{{jobsm.job.notes}}</div>
+                                        </div>
+                                    </div>
+                                    -->
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-rj">
+                    <caption>History</caption>
+
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th class="default">Time</th>
+                        <th class="default">Parent</th>
+                        <th class="default">Status</th>
+                        <th class="default"></th>
+                        <th class="delete-td"></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr ng-repeat-start="jobsm in SitterJobs | filter:{isOpen:false}" class="job-tr">
+                        <td>
+                            <a ng-click="jobsm.collapsed = !jobsm.collapsed">
+                                <i class="glyphicon" ng-class="jobsm.collapsed ? 'glyphicon-chevron-right' : 'glyphicon-chevron-down'"></i>
+                            </a>
+                            {{jobsm.dateTimeStart | date:"M/dd/yy"}}<br>
+                        </td>
+                        <td>{{jobsm.dateTimeStart | date:"h:mma"}} - {{jobsm.dateTimeEnd | date:"h:mma"}}</td>
+                        <td>{{jobsm.otherPartyName}}</td>
+                        <td>{{jobsm.statusLabel}}</td>
+                        <td>{{jobsm.job.finalPayment.paidToSitter | currency:"$":2}}</td>
+                        <td></td>
+                    </tr>
+
+                    <tr ng-repeat-end ng-class="{'collapsed': jobsm.collapsed}" class="job-details-tr">
+                        <td colspan="6">
+                            <div class="job-details-collapse col-xs-12" collapse="jobsm.collapsed">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div ng-show="jobsm.job.finalPayment" class="job-details-content-row row">
+                                            <div class="job-details-title col-xs-6">Rate:</div>
+                                            <div class="grey col-xs-6">{{jobsm.job.finalPayment.ratePerHour | rate}}&nbsp;&nbsp;&nbsp;{{jobsm.job.finalPayment.duration}} hours</div>
+                                        </div>
+                                        <div ng-show="jobsm.job.finalPayment" class="job-details-content-row row">
+                                            <div class="job-details-title col-xs-6">Total to Sitter:</div>
+                                            <div class="grey col-xs-6">{{jobsm.job.finalPayment.paidToSitter | currency:"$":2}}</div>
+                                        </div>
+                                        <div ng-show="jobsm.job.finalPayment" class="job-details-content-row row">
+                                            <div class="job-details-title col-xs-6">Payment Total:</div>
+                                            <div class="grey col-xs-6">{{jobsm.job.finalPayment.paidByParent | currency:"$":2}}</div>
+                                        </div>
+                                    </div>
+                                    <!--
+                                    <div ng-show="jobsm.job.notes" class="col-xs-8">
+                                        <div class="job-details-content-row row">
+                                            <div class="col-xs-4">Notes:</div>
+                                        </div>
+                                        <div class="job-details-content-row row">
+                                            <div class="notes grey col-xs-8">{{jobsm.job.notes}}</div>
+                                        </div>
+                                    </div>
+                                    -->
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <a ng-click="expandCollapseClosedJobs(-1);" ng-show="SitterJobsHelper.morePressed > 0">less</a>
+                <a ng-click="expandCollapseClosedJobs(+1);"
+                   ng-show="SitterJobsHelper.closedJobs.length > SitterJobsHelper.morePressed*SitterJobsHelper.closedJobsPerExpand + SitterJobsHelper.closedJobsInitOffset">more</a>
+            </div>
+        </div>
+    </div>
+</section>

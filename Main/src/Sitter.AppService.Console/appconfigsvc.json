@@ -1,0 +1,8 @@
+﻿{
+    SmsSimulationMode: false,
+    WhiteList: "On",
+    TwilioAccountSid : "ACe2bb6b57f5335dd37b31b2a90c2cb120",
+    TwilioAuthToken: "d645cd59102c8b8e9f118514eabb8e93",
+    SourcePhone: "+15122715458",
+    ConfigType: "Dev"
+}

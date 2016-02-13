@@ -1,0 +1,155 @@
+@mobile-phone-resolution: 480px;
+@bootstrap-sm-resolution: 768px;
+@bootstrap-md-resolution: 992px;
+@bootstrap-lg-resolution: 1200px;
+// The better width of windows for certain resolution.
+@mobile-phone-resolution-window-width: 400px;
+
+// Common CSS.
+@import "common.less";
+// Splash page CSS.
+@import "pagemarkup/splash/page-splash.less";
+// Dashboard page CSS.
+@import "pagemarkup/dashboard/page-dashboard.less";
+
+* {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+#parent-profile-page #profile-form {
+  .form-group label {
+    text-align: left;
+  }
+  .change-pass {
+    margin: 0;
+    padding: 0;
+  }
+  #saveForm {
+    width: 100%;
+  }
+}
+
+#sitter-clients-page .clients-list {
+  margin-top: 30px;
+}
+
+.change-password-input-wrapper {
+  margin-bottom: 15px;
+}
+
+#parent-post-job-page .sitter-info-wrapper:hover {
+  cursor: pointer;
+}
+
+.sitter-clients-parent-title,
+.post-job-sitter-title,
+.post-job-sitter-rate {
+  width: 80px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#parent-post-job-page .additional-options-wrapper {
+  overflow: hidden;
+}
+
+
+#sitter-jobs-page .jobs-list .sitter-row {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+#sitter-jobs-page .jobs-list .job-wrapper {
+  padding: 5px;
+}
+
+#sitter-jobs-page .jobs-list .job-item {
+  background-color: #eee;
+}
+
+#sitter-jobs-page .jobs-list .job-item .job-col {
+  padding: 5px;
+}
+
+#sitter-jobs-page .jobs-list .job-item .col-button {
+  padding: 0;
+}
+
+#sitter-jobs-page .jobs-list .job-item .job-details-collapse {
+  margin-top: 5px;
+}
+
+#sitter-jobs-page .jobs-list .job-item .job-details-collapse .job-details-content-row {
+  margin-bottom: 10px;
+}
+
+#sitter-jobs-page .jobs-list .job-item .job-details-collapse .job-details-title {
+  text-align: right;
+}
+
+#sitter-jobs-page .jobs-list .job-item .job-details-collapse .grey {
+  color: #888;
+}
+
+#sitter-jobs-page .jobs-list .job-item .job-details-collapse .notes {
+  border: 1px solid black;
+  padding: 15px;
+}
+
+#parent-post-job-page .col-pad {
+  padding: 5px;
+}
+
+.jobs-list .sitter-th {
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.additional-jobs-list .col,
+.parent-sitters-list .col {
+  text-align: center;
+}
+
+.usd-prefix {
+  padding: 10px 0 10px 15px;
+  height: 35px;
+  width: 30px;
+  float: left;
+}
+
+.input-with-prefix {
+  margin-left: 30px;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+#admin-smssimulator-page #sendMsg,
+#admin-smssimulator-page #refreshMsg,
+#parent-post-job-page #saveForm {
+  float: right;
+  margin: 15px 0;
+}
+
+#admin-smssimulator-page .messages-list {
+  height: 100%;
+  border: 1px solid #ddd;
+  padding: 10px;
+  overflow: scroll;
+}
+
+#parent-sitters-page .col-margin {
+  margin-bottom: 30px;
+}
+
+#parent-post-job-page .col-margin {
+  margin: 15px 0;
+}
+
+#admin-smssimulator-page .first-row .panel .body-content {
+  height: 200px;
+}
+
+#admin-smssimulator-page .second-row .panel .body-content {
+  height: 400px;
+}

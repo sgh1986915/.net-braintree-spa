@@ -1,0 +1,10 @@
+<div ng-show="title" class="modal-header">
+	<h3 class="modal-title">{{title}}</h3>
+</div>
+<div ng-show="body" class="modal-body">
+	{{body}}
+</div>
+<div ng-show="ok || cancel" class="modal-footer">
+	<button class="btn btn-rj" ng-show="ok" ng-click="okCallback();">{{ok}}</button>
+	<button class="btn btn-rj" ng-show="cancel" ng-click="cancelCallback();">{{cancel}}</button>
+</div>

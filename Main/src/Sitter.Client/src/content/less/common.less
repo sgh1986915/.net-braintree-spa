@@ -1,0 +1,267 @@
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.sitterhub-container {
+  margin: 0 auto;
+  width: auto;
+
+  .row .col-pad {
+    padding-top: 10px;
+  }
+}
+.text-right {
+  text-align: right;
+}
+.modal-backdrop {
+  bottom: 0;
+}
+.modal.simple-confirm .modal-dialog {
+  margin-top: 10%;
+}
+form.form-horizontal label.label-left {
+  text-align: left;
+}
+.btn-wide {
+  width: 100%;
+}
+
+/* TAKEN FROM RINJANI FOOTER FORM */
+input.form-control,
+input.form-control:focus {
+  background-color: transparent;
+  border-color: #888;
+}
+label {
+  color: #888;
+}
+/********/
+
+/* TITLES */
+.section-title {
+  .main-title {
+    color: #414141;
+    text-align: left;
+    padding-top: 15px;
+    margin: 0 0 5px 40px;
+    font-size: 35px;
+    text-transform: capitalize;
+    @media (min-width: @mobile-phone-resolution) {
+      font-size: 45px;
+    }
+    @media (min-width: @bootstrap-sm-resolution) {
+      font-size: 60px;
+    }
+  }
+  .section-line {
+    display: inline-block;
+    width: 50px;
+    height: 1px;
+    background-color: #222;
+  }
+  hr {
+    margin-top: 0;
+    margin-bottom: 30px;
+    border-top: 2px solid #ddd;
+  }
+}
+/* END TITLES */
+/* photos in round */
+.photo-sitter {
+  border-radius: 50%;
+  border: 2px solid #999;
+  overflow: hidden;
+  margin-bottom: 10px;
+  box-shadow: 0px 5px 10px -5px black;
+  background-color: #ddd;
+  &.current-user {
+    border: 4px solid #999;
+    width: 100px;
+    height: 100px;
+  }
+  &.profile-page {
+    width: 60px;
+    height: 60px;
+  }
+  &.parent-sitters-page {
+    margin: 0;
+    float: left;
+    width: 30px;
+    height: 30px;
+  }
+  &.sitter-clients-page  {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+  }
+  &.post-job-page {
+    border: 2px solid #888;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.selected-sitter .photo-sitter {
+  border: 2px solid #1abc9c;
+}
+/* end photos */
+/* fix links color when used with btn class */
+a {
+  color: #1abc9c;
+  &.btn {
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
+  }
+  &:hover {
+    color: #888;
+    cursor: pointer;
+  }
+}
+/* end fix links/buttons */
+/* modal widnows*/
+.modal-sm {
+  .modal-header,
+  .modal-footer {
+    border: none;
+  }
+}
+/* end modal windows */
+/* Timedate directive*/
+.time-wrapper {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  select {
+    border-radius: 4px;
+    border-color: #888;
+    height: 34px;
+    &:hover {
+      cursor: pointer;
+    }
+
+    option {
+      cursor: pointer;
+    }
+  }
+  &.calendar {
+    .datepicker-wrapper {
+      &:hover {
+        cursor: pointer;
+      }
+
+      button.btn-calendar {
+        position: absolute;
+        right: 0;
+        border: 1px solid #888;
+        border-left: none;
+      }
+      input.date-input {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        &:hover {
+          cursor: inherit;
+        }
+      }
+    }
+  }
+  .time-col {
+    h4 {
+      margin: 0;
+    }
+    input,
+    select {
+      width: 100%;
+    }
+    input:hover {
+      cursor: default;
+    }
+    .btn-calendar {
+      z-index: 2;
+      height: 34px;
+      width: 40px;
+    }
+  }
+  .time-col.col-hrs {
+    font-size: 16px;
+    color: #999;
+  }
+}
+.dropdown-menu[datepicker-popup-wrap] {
+  padding: 0;
+
+  table {
+    border-spacing: 7px;
+    border-collapse: separate;
+  }
+}
+/* END timedate directive */
+.modal.pay-sitter {
+  font-size: 14px;
+
+  .cancel-wrapper {
+    font-size: 11px;
+    display: block;
+  }
+  .modal-title {
+    text-align: center;
+  }
+  table.pay-sitter-table {
+    width: 100%;
+
+    td {
+      padding-bottom: 5px;
+    }
+  }
+  .label {
+    padding: 0;
+    text-align: left;
+    font-weight: bold;
+    font-size: inherit;
+    color: black;
+  }
+  .value {
+    padding-left: 5px;
+    font-size: inherit;
+  }
+  .time-col {
+    h4 {
+      padding-bottom: 3px;
+      font-weight: bold;
+      font-size: inherit;
+    }
+    select {
+      height: 25px;
+      border-radius: 0;
+    }
+  }
+  .col-hrs {
+    margin: 10px 0;
+  }
+  .rate-bonus {
+    margin-bottom: 20px;
+  }
+  .totals {
+    margin-bottom: 10px;
+  }
+  #bonus {
+    width: 50px;
+    display: inline;
+    margin-left: 3px;
+    height: 20px;
+    border-radius: 0;
+    padding: 2px;
+  }
+  .btn-submit {
+    text-transform: capitalize;
+  }
+}

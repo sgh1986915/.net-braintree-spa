@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="time-wrapper calendar col-xs-12" ng-show="showDate">
+		<h4>Date</h4>
+
+		<div class="time-col input-group col-xs-12 datepicker-wrapper" ng-click="TimeHelper.Datepicker.openCalendar($event, 'start');">
+			<input type="text" class="date-input form-control" datepicker-popup="{{TimeHelper.Datepicker.datepickerPopupOptions.format}}" ng-model="TimeHelper.DayHoursMins.Day"
+				   show-button-bar="false"
+				   is-open="TimeHelper.Datepicker.opened.start" close-text="Close" min-date="TimeHelper.Datepicker.minDate"
+				   datepicker-options="{showWeeks: false, startingDay: 7}" disabled required />
+			<button type="button" class="btn-calendar btn btn-rj btn-sm"><i class="glyphicon glyphicon-calendar"></i></button>
+		</div>
+	</div>
+
+	<div class="time-wrapper col-xs-12">
+		<div class="time-col input-group col-xs-12">
+			<h4>Start Time</h4>
+
+			<div class="time-col col-xs-12 input-group">
+				<select ng-if="restrictPastTime" ng-model="TimeHelper.DayHoursMins.timeFrom" ng-options="item as item.label_from for item in TimeHelper.timeOptions | orderBy:'weight' | in_future_only:TimeHelper.DayHoursMins.Day" required></select>
+				<select ng-if="!restrictPastTime" ng-model="TimeHelper.DayHoursMins.timeFrom" ng-options="item as item.label_from for item in TimeHelper.timeOptions | orderBy:'weight'" required></select>
+			</div>
+		</div>
+	</div>
+
+	<div class="time-wrapper col-xs-12">
+		<div class="time-col input-group col-xs-12">
+			<h4>End Time</h4>
+
+			<div class="time-col col-xs-12 input-group">
+				<select ng-model="TimeHelper.DayHoursMins.timeTo" ng-options="item as item.label_to for item in TimeHelper.timeOptions | orderBy:'weight'" required></select>
+			</div>
+
+			<div ng-show="TimeHelper.duration" class="time-col col-hrs col-pad">
+				{{TimeHelper.duration | hours}}
+			</div>
+		</div>
+	</div>
+</div>

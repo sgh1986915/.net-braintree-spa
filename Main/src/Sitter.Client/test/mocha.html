@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/mocha/mocha.css"/>
+
+</head>
+<body>
+    <div id="mocha"></div>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+
+    <script>mocha.setup('bdd')</script>
+    <!-- inject-vendor:js -->
+    <script src="/bowerlib/jquery/dist/jquery.js"></script>
+    <script src="/bowerlib/signalr/jquery.signalR.js"></script>
+    <script src="/bowerlib/angular/angular.js"></script>
+    <script src="/bowerlib/angular-animate/angular-animate.js"></script>
+    <script src="/bowerlib/angular-route/angular-route.js"></script>
+    <script src="/bowerlib/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/bowerlib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/bowerlib/toastr/toastr.js"></script>
+    <script src="/bowerlib/moment/moment.js"></script>
+    <script src="/bowerlib/extras.angular.plus/ngplus-overlay.js"></script>
+
+    <!-- ThirdParty  -->
+    <script src="/thirdparty/kendoui/2014.3.1119/js/kendo.all.min.js"></script>
+    <script src="/thirdparty/highcharts/highcharts.js"></script>
+    <script src="/thirdparty/highcharts/modules/exporting.src.js"></script>
+    <script src="/thirdparty/highcharts/jquery-ui.js"></script> <!-- TODO JF: remove, use Telerik instead-->
+    <script src="/thirdparty/filesaver.js"></script>
+    <script src="/thirdparty/lodash/lodash.js"></script>
+
+    <script src="/bowerlib/angular-mocks/angular-mocks.js"></script>
+
+    <!-- endinject -->
+
+    <!--Source files goes here-->
+    <!-- Bootstrapping -->
+    <script src="/app/app.module.js"></script>
+    <!-- Reusable Blocks/Modules -->
+    <script src="/app/blocks/exception/exception.module.js"></script>
+    <script src="/app/blocks/exception/exception-handler.js"></script>
+    <script src="/app/blocks/exception/exception.js"></script>
+    <script src="/app/blocks/logger/logger.module.js"></script>
+    <script src="/app/blocks/logger/logger.js"></script>
+    <script src="/app/blocks/router/router.module.js"></script>
+    <script src="/app/blocks/router/routehelper.js"></script>
+    <script src="/app/blocks/sr/srProxy.module.js"></script>
+    <script src="/app/blocks/sr/srProxy.js"></script>
+
+    <!-- core module -->
+    <script src="/app/core/core.module.js"></script>
+    <script src="/app/core/constants.js"></script>
+    <script src="/app/core/config.js"></script>
+    <script src="/app/core/dataservice.js"></script>
+
+    <!-- layout -->
+    <script src="/app/layout/layout.module.js"></script>
+    <script src="/app/layout/shell.js"></script>
+    <script src="/app/layout/sidebar.js"></script>
+    <script src="/app/layout/navbar.js"></script>
+
+    <!--widgets-->
+    <script src="/app/widgets/widgets.module.js"></script>
+    <script src="/app/widgets/ccSidebar.js"></script>
+    <script src="/app/widgets/ccSpinner.js"></script>
+    <script src="/app/widgets/ccWidgetClose.js"></script>
+    <script src="/app/widgets/ccWidgetHeader.js"></script>
+    <script src="/app/widgets/ccWidgetMinimize.js"></script>
+
+
+    <!-- dashboard -->
+    <script src="/app/dashboard/dashboard.module.js"></script>
+    <script src="/app/dashboard/config.route.js"></script>
+    <script src="/app/dashboard/dashboard.js"></script>
+    <script src="/app/dashboard/login.js"></script>
+
+    <!--admin module-->
+    <script src="/app/admin/admin.module.js"></script>
+    <script src="/app/admin/config.route.js"></script>
+    <script src="/app/admin/admin.js"></script>
+    <!-- endinject -->
+
+
+    <script>expect = chai.expect;</script>
+    <script src="/unit/sitter/job_spec.js"></script>
+    <script>
+        mocha.run();
+    </script>
+</body>
+</html>

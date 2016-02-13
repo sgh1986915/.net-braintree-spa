@@ -1,0 +1,133 @@
+<section id="parent-sitters-page" class="page-content">
+	<div class="section-title text-center">
+		<h2 class="main-title">My sitters</h2>
+		<hr />
+	</div>
+
+	<div class="container sitterhub-container parent-sitters-container">
+		<div class="row">
+			<div class="col-margin col-xs-12">
+				<form name="MySittersForm">
+					<div class="parent-sitters-list" data-as-sortable="dragSittersControlListeners"
+						 data-ng-model="ParentSitters.Sitters" ng-show="ParentSitters.Sitters.length">
+						<div class="sitter-th row">
+							<div class="col col-xs-1"></div>
+							<div class="col col-xs-5">
+								Name
+							</div>
+							<!--
+							<div class="col col-xs-3">
+								Phone
+							</div>
+							-->
+							<div class="col col-xs-5">
+								Rate/hr.
+							</div>
+							<div class="col col-xs-1"></div>
+						</div>
+						<div class="sitter-item row" data-as-sortable-item
+							 ng-repeat="sitter in ParentSitters.Sitters">
+							<div class="col col-pad col-xs-1">
+								<i class="glyphicon glyphicon-th-list"
+								   data-as-sortable-item-handle></i>
+							</div>
+							<div class="col col-xs-5">
+								<div popover="{{sitter.mobilePhone | mobile_phone}}" popover-trigger="mouseenter" class="sitter-info-wrapper sitter-name-wrapper">
+									<div class="photo-sitter parent-sitters-page">
+										<img ng-src="{{sitter.photoUrlAdapted}}"/>
+									</div>
+
+									<div class="sitter-title">
+										{{sitter | sitter_title_filter}}
+									</div>
+								</div>
+							</div>
+							<!--
+							<div class="col col-pad col-xs-5">
+								<div class="sitter-phone-wrapper">
+									{{sitter.mobilePhone | phone}}
+								</div>
+							</div>
+							-->
+							<div class="col col-xs-5">
+								<div class="price-input input-group">
+									<div class="usd-prefix">$</div>
+									<div class="input-with-prefix">
+										<input type='number' name="rate-{{$index}}" class="form-control"
+											   ng-model="sitter.rate" min="0" ng-blur="saveSittersList();" />
+									</div>
+								</div>
+								<!--<div ng-if="sitter.inviteStatus != 'AcceptedInvite'">-->
+								<!--{{sitter.inviteStatus}}-->
+								<!--</div>-->
+							</div>
+							<div class="col col-pad col-xs-1">
+								<a href="" ng-click="deleteSitter(sitter)">
+									<i class="glyphicon glyphicon-trash"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="col-pad col-xs-12">Invite a Sitter to join your HUB</div>
+
+			<div class="col-margin col-xs-12">
+				<form name="SendInvitation">
+					<div class="row">
+						<div class="col-pad col-xs-4">Enter Sitter Mobile:</div>
+						<div class="col-pad col-xs-4">Sitter Name:</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="input-group" show-errors>
+								<input name="NewSitterMobile" phoneformat
+									   ng-model="ParentSittersHelper.NewSitterMobile"
+									   class="form-control" required />
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<input name="inviteNickName"
+									   ng-model="ParentSittersHelper.inviteNickName"
+									   class="form-control" />
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<button ng-disabled="SendInvitation.$invalid || ParentSittersHelper.Processing"
+									class="btn btn-rj btn-sm" ng-click="sendInvite();">Send Invitation
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="col-xs-12">
+				<div class="parent-sitters-invited">
+					<div class="sitter-th row">
+						<div class="col col-xs-12">
+							Invited
+						</div>
+					</div>
+					<div class="sitter-item row"
+						 ng-repeat="invite in ParentSitters.SitterInvites | orderBy:'inviteDate'">
+						<div class="col col-pad col-xs-4">
+							{{invite.mobilePhoneInvite | phone}}
+						</div>
+						<div class="col col-pad col-xs-4">
+							{{invite.inviteNickName}}
+						</div>
+						<div class="col col-pad col-xs-3">
+							{{invite.inviteStatus}}
+						</div>
+						<div class="col col-pad col-xs-1">
+							<a ng-click="removeInvite(invite.mobilePhoneInvite);"><i class="glyphicon glyphicon-remove"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

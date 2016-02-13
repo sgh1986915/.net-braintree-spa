@@ -1,0 +1,40 @@
+<section id="sitter-clients-page" class="page-content">
+    <div class="section-title text-center">
+        <h2 class="main-title">My Clients</h2>
+        <hr />
+    </div>
+
+    <div class="container sitterhub-container sitter-clients-container">
+            <div class="row">
+                <div class="col-margin col-xs-12">
+                    <form name="SendInvitation">
+                        <div class="col-pad col-xs-4">Request to be added to a parent's HUB:</div>
+                        <div class="col-xs-4">
+                            <div class="input-group" show-errors>
+                                <input name="NewClientMobile" phoneformat
+                                       ng-model="SitterClientsHelper.NewClientMobile"
+                                       class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <button ng-disabled="SendInvitation.$invalid || SitterClientsHelper.Processing"
+                                    class="btn btn-rj btn-sm" ng-click="sendInvite();">Send request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-xs-12 clients-list">
+                    <div class="col-xs-6 col-md-3 client-info-wrapper" ng-repeat="client in SitterClients.Clients">
+                        <div class="photo-sitter sitter-clients-page">
+                            <img ng-src="{{client.photoUrlAdapted}}"/>
+                        </div>
+
+                        <div class="sitter-clients-parent-title">
+                            {{client.fullName}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

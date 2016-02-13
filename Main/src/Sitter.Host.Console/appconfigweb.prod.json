@@ -1,0 +1,6 @@
+﻿{
+    AwsKeyId : "AKIAJF3CPB5GCZPAMWGQ",
+    AwsKeySecret: "d645cd59102c8b8e9f118514eabb8e93",
+    S3BucketName: "mshpics_prod",
+    ConfigType: "Prod"
+}

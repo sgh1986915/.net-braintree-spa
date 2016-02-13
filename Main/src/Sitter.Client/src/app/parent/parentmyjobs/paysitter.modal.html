@@ -1,0 +1,76 @@
+<div class="modal-header">
+	<h3 class="modal-title">
+		<div class="cancel-wrapper text-right">
+			<a ng-click="Close();">Cancel</a>
+		</div>
+		Edit Details <br />
+		and <br />
+		Pay Sitter
+	</h3>
+</div>
+<div class="modal-body">
+	<form name="PaySitter" class="form-horizontal">
+		<table class="pay-sitter-table">
+			<tr>
+				<td><div class="label">Date:</div></td>
+				<td><div class="value">{{PaySitter.Form.dateTimeStart | date:"EEEE, MMMM d, yyyy"}}</div></td>
+			</tr>
+			<tr>
+				<td><div class="label">Sitter:</div></td>
+				<td><div class="value">{{PaySitterHelper.AcceptedSitterInvite.sitterName}}</div></td>
+			</tr>
+		</table>
+
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				Did the start or end times change for this job?
+			</div>
+
+			<div class="col-xs-12">
+				<sitter-time-date class="pay-sitter-time" show-date="false" start-model="PaySitter.Form.dateTimeStart" end-model="PaySitter.Form.dateTimeEnd"></sitter-time-date>
+			</div>
+
+			<div class="col-xs-12">
+				<div class="row rate-bonus">
+					<div class="col-xs-7"><div class="label">Rate:</div></div>
+					<div class="col-xs-5 value">{{PaySitter.Form.estRatePerHour | rate}}</div>
+				</div>
+
+				<div class="row rate-bonus">
+					<div class="col-xs-7"><div class="label">Bonus:</div></div>
+					<div class="col-xs-5 value">$<input type="integer" class="form-control" id="bonus" name="bonus" ng-model="PaySitter.Form.bonus" min="0" /></div>
+				</div>
+
+				<div class="row totals">
+					<div class="col-xs-7"><div class="label">Total to Sitter:</div></div>
+					<div class="col-xs-5 value">{{PaySitter.Form.estPaidToSitter | currency:"$":2}}</div>
+				</div>
+
+				<div class="row totals">
+					<div class="col-xs-7"><div class="label">Total Charged:</div></div>
+					<div class="col-xs-5 value">{{PaySitter.Form.estPaidByParent | currency:"$":2}}</div>
+				</div>
+			</div>
+
+			<!--<div class="col-xs-12">-->
+				<!--<div class="form-group" show-errors>-->
+					<!--<label class="control-label col-xs-2" for="ratePerHour">Rate:</label>-->
+					<!--<div class="col-xs-10">-->
+						<!--<div class="usd-prefix">$</div>-->
+						<!--<div class="input-with-prefix">-->
+							<!--<input type='number'-->
+								   <!--id="ratePerHour"-->
+								   <!--name="PaySitter.Form.ratePerHour"-->
+								   <!--class="form-control"-->
+								   <!--ng-model="PaySitter.Form.ratePerHour"-->
+								   <!--min="0" />/hour-->
+						<!--</div>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-rj btn-wide btn-submit" ng-click="SubmitPayment(PaySitter.Form);">Submit payment</button>
+</div>

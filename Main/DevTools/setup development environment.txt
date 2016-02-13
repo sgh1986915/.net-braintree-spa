@@ -1,0 +1,47 @@
+
+
+=== Set-up .NET Back-end  ===
+- Development environment: Visual Studio
+- Source code:
+   https://github.com/josephflu/sitter
+
+   
+==== Install Front End Dependencies ====
+1) Install nodejs
+  (install the 64 bit version)
+  http://nodejs.org/download/
+  (this will add "C:\Program Files\nodejs\;" to your PATH)
+
+2) Install git  (this is needed for bower)
+   (select option to use git from windows command prompt)
+   http://git-scm.com/download/win
+     (This will add "C:\Program Files (x86)\Git\cmd"  to your path)	
+    -options:
+    + default program files folder
+    + windows explorer integration, simple context menu, git GUI (this option is your preference)
+    + adjusting your PATH environment: use git frm windows command prompt (2nd option)
+    +checkout windows style
+
+3) Install bower
+	run from commandline: 
+	"npm install -g bower"
+	(this will add a bower.cmd to "C:\Users\{userName}\AppData\Roaming\npm")
+	(this will add "C:\Users\{username}\AppData\Roaming\npm" to your USER PATH)
+
+4) Run "npm install" from the command line in this directory:
+   C:\_github\sitter\Main\src\Sitter.Client
+   - note: this will install all the node files, and also will run "bower install" which will install javascript dependencies like angularJS.
+  
+  
+5) To install gulp globally, run this command "npm install --save-dev gulp"
+
+6) To compile the front end JavaScript, run one of these commands:
+gulp run --live
+or
+gulp watch --dev  // this will watch for any changes and automatically rebuild when any files changes
+  
+=== Install Database ===
+- Setup Database: MongoDB 
+- See documentation MongoDB subfolder.
+
+

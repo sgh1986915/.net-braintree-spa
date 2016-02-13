@@ -1,0 +1,42 @@
+.choose-role-window .btn {
+  margin: 5px 0;
+}
+
+#signup-form h4 {
+  text-align: center;
+  color: #438eb9;
+}
+
+// ngAnimate rules //////////////////////////////////////////////////////////////////////
+.signup-window-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.choose-role-window-wrapper {
+  opacity: 1;
+  width: 100%;
+  &.ng-hide-add-active,
+  &.ng-hide-remove-active {
+	position: absolute;
+	-webkit-transition: all linear 0.5s;
+	-moz-transition: all linear 0.5s;
+	-o-transition: all linear 0.5s;
+	transition: all linear 0.5s;
+  }
+  &.ng-hide {
+	opacity: 0;
+  }
+}
+
+.signup-form-wrapper {
+  &.ng-hide-add-active,
+  &.ng-hide-remove-active {
+	-webkit-transition: all linear 0.5s;
+	-moz-transition: all linear 0.5s;
+	-o-transition: all linear 0.5s;
+	transition: all linear 0.5s;
+  }
+}
+// END ngAnimate rules //////////////////////////////////////////////////////////////////////
+
